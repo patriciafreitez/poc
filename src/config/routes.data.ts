@@ -1,0 +1,6 @@
+export const ROUTES = {
+    UBICANOS: 'b/5c28549f3f8bd92e4cc594bf',
+    CERTIFICACION_PDF: 'b/5c2851c0412d482eae57a77e',
+    HELLO_WORD: 'b/5c2851763f8bd92e4cc5936d'
+
+}

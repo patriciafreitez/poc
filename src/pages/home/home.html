@@ -1,0 +1,46 @@
+<ion-header no-border>
+    <ion-toolbar text-center>
+      <ion-title>POC</ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content >
+
+  <ion-row>
+    <ion-slides pager>
+
+      <ion-slide >
+        <div style="background:url(assets/imgs/imagen4.jpg)" class="ima" ></div>
+      </ion-slide>
+      
+      <ion-slide >
+        <div style="background:url(assets/imgs/imagen3.jpg)" class="ima" ></div>
+      </ion-slide>
+    
+      <ion-slide >
+        <div style="background:url(assets/imgs/imagen5.jpg)" class="ima" ></div>
+      </ion-slide>
+        
+    </ion-slides>
+    <img src="assets/imgs/logo.png" class="logo"/>
+  </ion-row>
+
+  <div class="conteiner" padding>
+    <button (click)="openFacebook()" ion-button color="button1" class="button1 margen-button card">
+      <img class="imagen" src="assets/imgs/facebook.svg">
+      <small ion-text class="card-text">Facebook</small>
+    </button>
+    <button (click)='openHelloWord()' ion-button color="button2" class="button2 card">
+      <img class="imagen" src="assets/imgs/hello-speech-bubble-handmade-chatting-symbol.svg">
+      <small ion-text class="card-text">Hola mundo</small>
+    </button>
+    <button ion-button color="button3" class="button2 margen-button card">
+      <img class="imagen" src="assets/imgs/location.svg">
+      <small ion-text class="card-text">Ubicanos</small>
+    </button>
+    <button (click)="openCertification()" ion-button color="button4" class="button1 card" >
+      <img class="imagen" src="assets/imgs/certificado.svg"> 
+      <small ion-text class="card-text">Certificados</small>
+    </button>
+  </div>
+</ion-content>
