@@ -4,6 +4,7 @@ import { Storage } from '@ionic/storage';
 import { App, Platform } from 'ionic-angular';
 import { Observable } from 'rxjs/Observable';
 import { Response } from '@angular/http/src/static_response';
+import { MessageLibrary } from './message.library';
 
 @Injectable()
 export class HttpClientLibrary {
@@ -24,7 +25,8 @@ export class HttpClientLibrary {
     DELETE: "DELETE"
   };
 
-  constructor(private http: HttpClient, private storage: Storage, private platform:Platform) {
+  constructor(private http: HttpClient, private storage: Storage, private platform:Platform,
+    public messages: MessageLibrary) {
 
   }
 
@@ -129,7 +131,7 @@ export class HttpClientLibrary {
           error: this.error.bind(this.context),
           app: this.app,
           storage: this.storage,
-
+          messages: this.messages
         }),
         this.finallyCallBack.bind({
           finally: this.finally

@@ -1,0 +1,10 @@
+<!-- Generated template for the MapComponent component -->
+<div class="map-search" [hidden]="config.search_hidden">
+  <ion-searchbar
+    #div_search_map
+    [(ngModel)]="config.searchBar"
+    [placeholder]="escribe"
+    debounce=500>
+  </ion-searchbar>
+</div>
+<div #map_div></div>

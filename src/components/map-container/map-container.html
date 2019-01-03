@@ -1,0 +1,9 @@
+<!-- Generated template for the MapComponent component -->
+<map
+  #map
+  [options]="options"
+  (ready)="mapReady()"
+  (map_click)="mapClick($event)"
+  (camera_move_end)="CameraMoveEnd($event)"
+  (display_route)="displayRoute($event)"
+></map>

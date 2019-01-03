@@ -21,19 +21,22 @@ export class HomePage {
 
   public openFacebook() {
     let option: any = {};
-    if(this.platform.is('android')){
+    if(this.platform.is('android')) {
       option = {
         zoom: "no"
       }
     }
-    this.iab.create('https://www.facebook.com/InversionSURACL', "_self", option );
+    this.iab.create('https://www.facebook.com/InversionSURACL', "_blank", option );
+  }
+  public openMap(){
+    this.navCtrl.push("mapa");
   }
   
   public openHelloWord() {
     this.request.get({
       url: this.request.ROUTE.HELLO_WORD
     },
-      (response) =>{
+      (response) => {
         if(response.status == 200 ){
           console.log(response);
           let toast = this.toastCtrl.create({
@@ -43,7 +46,8 @@ export class HomePage {
           });
           toast.present();
         }
-      }
+      }, 
+      {}
     )
   }
   

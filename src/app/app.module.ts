@@ -8,12 +8,11 @@ import { HttpClientModule } from '@angular/common/http';
 import { RequestService } from '../services/request.service';
 import { HttpClientLibrary } from '../libraries/http-client.library';
 import { IonicStorageModule } from '@ionic/storage';
-import { DocumentViewer } from '@ionic-native/document-viewer';
-import { FileOpener } from '@ionic-native/file-opener';
-
+import { PageModule } from './page.module';
 
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
+import { MessageLibrary } from '../libraries/message.library';
 
 @NgModule({
   declarations: [
@@ -25,7 +24,8 @@ import { HomePage } from '../pages/home/home';
     BrowserModule,
     IonicModule.forRoot(MyApp),
     HttpClientModule,
-    IonicStorageModule.forRoot()
+    IonicStorageModule.forRoot(),
+    PageModule
 
   ],
   bootstrap: [IonicApp],
@@ -41,8 +41,7 @@ import { HomePage } from '../pages/home/home';
     InAppBrowser,
     RequestService,
     HttpClientLibrary,
-    DocumentViewer,
-    FileOpener
+    MessageLibrary
   ]
 })
 export class AppModule {}

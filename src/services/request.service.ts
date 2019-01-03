@@ -7,6 +7,7 @@ import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/catch';
 import { HttpClientLibrary } from '../libraries/http-client.library';
 import { ROUTES } from '../config/routes.data';
+import { MessageLibrary } from '../libraries/message.library';
 
 @Injectable()
 export class RequestService {
@@ -21,7 +22,7 @@ export class RequestService {
   public INTERNAL_SERVER_ERROR:number = 500;
 
   constructor(private httpService:HttpClientLibrary, private app:App, 
-              public storage:Storage ) {
+              public storage:Storage, private messages:MessageLibrary) {
   }
 
   public get(params:any, callback:any = null, message:any = null):any {
@@ -41,6 +42,8 @@ export class RequestService {
   }
 
   private _initMethod(params:any, method:string, callback:any = null, message:any = null):void {
+    if (message !== null)
+    this.messages.showMessage(message);
 
     this._setParams(params).then((parameters) => {
       this.httpService._initRequest(
@@ -70,11 +73,17 @@ export class RequestService {
           }
          
         }
-        
+        this.closeMessage(message);
       },
       finally:()=> {
+        this.closeMessage(message);
       }
     }
+  }
+
+  private closeMessage(message):void {
+    if (message !== null)
+      this.messages.closeMessage();
   }
 
   private _setParams(params:any):Promise<any> {

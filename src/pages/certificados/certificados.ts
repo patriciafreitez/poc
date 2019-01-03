@@ -3,7 +3,6 @@ import { IonicPage, NavController, NavParams, Platform } from 'ionic-angular';
 import { RequestService } from '../../services/request.service';
 import { InAppBrowser } from '@ionic-native/in-app-browser';
 
-
 /**
  * Generated class for the CertificadosPage page.
  *
@@ -42,7 +41,8 @@ export class CertificadosPage {
           let url = 'https://docs.google.com/viewer?url=' + encodeURIComponent(response.pdf_url);
           this.iab.create(url, '_blank', option);
         }
-      }
+      }, 
+      {}
     )
   }
 

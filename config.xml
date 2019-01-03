@@ -100,8 +100,8 @@
     <allow-navigation href="*" />
     <allow-navigation href="http://192.168.1.137:8100" />
     <allow-navigation href="http://192.168.0.25:8100" sessionid="483bb602" />
-    <engine name="android" spec="~7.1.4" />
     <plugin name="cordova-plugin-file-opener2" spec="2.1.4">
         <variable name="ANDROID_SUPPORT_V4_VERSION" value="27.+" />
     </plugin>
+    <engine name="android" spec="7.1.4" />
 </widget>
