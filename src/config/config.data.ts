@@ -30,8 +30,8 @@ export const CONFIG = {
     },
     DISPLAY_COMPANY_LOCATE:true,
     COMPANY_LOCATE: {
-      LAT: -33.4372,
-      LNG: -70.6506,
+      LAT: -33.422607,
+      LNG: -70.608039,
       TITLE: "SURA",
       INFO_OPEN:true,
       ICON: "https://cdn3.iconfinder.com/data/icons/mapicons/icons/girlfriend.png",
