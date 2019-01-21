@@ -31,6 +31,7 @@ export class HttpClientLibrary {
   }
 
   public setParams(params: any): void {
+    console.log("setParams")
     this.headers = new HttpHeaders();
     this.search = new HttpParams();
 
@@ -120,8 +121,9 @@ export class HttpClientLibrary {
   }
 
   private _request(requestPrepared: Observable<Object>):void {
+    console.log("_request", this.url, this.options)
     requestPrepared
-    
+
      // .timeout(this.timeout)
       .subscribe(
         this.successCallBack.bind({

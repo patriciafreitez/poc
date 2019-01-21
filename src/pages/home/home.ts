@@ -4,14 +4,14 @@ import { InAppBrowser } from '@ionic-native/in-app-browser';
 import { RequestService } from '../../services/request.service';
 import { ToastController } from 'ionic-angular';
 
-
+// ionic cordova emulate ios – --buildFlag="-UseModernBuildSystem=0"
 @Component({
   selector: 'page-home',
   templateUrl: 'home.html'
 })
 export class HomePage {
 
-  constructor(private toastCtrl: ToastController, public navCtrl: NavController, 
+  constructor(private toastCtrl: ToastController, public navCtrl: NavController,
     private iab: InAppBrowser, private platform: Platform, private request: RequestService) {
   }
 
@@ -28,28 +28,27 @@ export class HomePage {
     }
     this.iab.create('https://www.facebook.com/InversionSURACL', "_blank", option );
   }
+
   public openMap(){
     this.navCtrl.push("mapa");
   }
-  
+
   public openHelloWord() {
     this.request.get({
-      url: this.request.ROUTE.HELLO_WORD
+      url: ""
     },
       (response) => {
         if(response.status == 200 ){
           console.log(response);
           let toast = this.toastCtrl.create({
-            message: response.message,
+            message: response.mensaje,
             duration: 3000,
             position: 'bottom'
           });
           toast.present();
         }
-      }, 
-      {}
+      }, {}
     )
   }
-  
-}
 
+}

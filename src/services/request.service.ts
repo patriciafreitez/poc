@@ -13,6 +13,7 @@ import { MessageLibrary } from '../libraries/message.library';
 export class RequestService {
   // borrar esta linea cuando no hallan mas JSON dummies
   private ROUTE_DUMMIES:string = "http://api.jsonbin.io/";
+  private ROUTE_ROOT:string = "http://169.62.213.147/";
   public ROUTE = ROUTES;
   public SERVER_DOWN:number = 0;
   public OK:number = 200;
@@ -21,7 +22,7 @@ export class RequestService {
   public NOT_FOUNT:number = 404;
   public INTERNAL_SERVER_ERROR:number = 500;
 
-  constructor(private httpService:HttpClientLibrary, private app:App, 
+  constructor(private httpService:HttpClientLibrary, private app:App,
               public storage:Storage, private messages:MessageLibrary) {
   }
 
@@ -71,7 +72,7 @@ export class RequestService {
 
             callback(response);
           }
-         
+
         }
         this.closeMessage(message);
       },
@@ -89,21 +90,23 @@ export class RequestService {
   private _setParams(params:any):Promise<any> {
     return new Promise((resolve, reject) => {
       this._getRoute(params).then((data) => {
-        
+
             resolve(data);
-        
+
       });
     });
   }
 
   private _getRoute(params:any):Promise<any> {
     return new Promise((resolve, reject) => {
-      if(params.url.substring(0, 1) === "b") {
+      console.log("getRoute", params);
+      if(params.url === "") {
+        params.url = this.ROUTE_ROOT + params.url;
+      } else {
         params.url = this.ROUTE_DUMMIES + params.url;
-        params.secretkey =  '$2a$10$BNeywoWSDpgoR7qSxz.FhuEcYNxuQEx..C5/Y7fHP4CKO/DtCQzqS'
-        ;
-        resolve(params);
+        params.secretkey =  '$2a$10$BNeywoWSDpgoR7qSxz.FhuEcYNxuQEx..C5/Y7fHP4CKO/DtCQzqS';
       }
+      resolve(params);
     });
   }
 
@@ -129,7 +132,7 @@ export class RequestService {
     return response;
   }
 
-  
+
 
   public validUndefined(value:any):any {
     return value === undefined ? '' : value;

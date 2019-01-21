@@ -18,7 +18,7 @@ import { InAppBrowser } from '@ionic-native/in-app-browser';
   templateUrl: 'certificados.html',
 })
 export class CertificadosPage {
- 
+
   constructor(public navCtrl: NavController, private iab: InAppBrowser,
     private request: RequestService, public navParams: NavParams, private platform: Platform) {
 
@@ -26,24 +26,20 @@ export class CertificadosPage {
 
   public openPdf() {
     this.request.get({
-      url: this.request.ROUTE.CERTIFICACION_PDF
+      url: ""
     },
-      (response:any) => {
-        let option: any = {
-          location:'no'
-        };
-        if(response.status == 200 ) {
+      (response) => {
+        if(response.status == 200){
+          let option: any = { location:'no' };
           if(this.platform.is('android')){
             option = {
               zoom: "no"
             }
           }
-          let url = 'https://docs.google.com/viewer?url=' + encodeURIComponent(response.pdf_url);
+          let url = 'https://docs.google.com/viewer?url=' + encodeURIComponent(response.uri);
           this.iab.create(url, '_blank', option);
         }
-      }, 
-      {}
-    )
+      }, {});
   }
 
 }

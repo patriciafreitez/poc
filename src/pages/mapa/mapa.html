@@ -5,16 +5,15 @@
   Ionic pages and navigation.
 -->
 <ion-header no-border>
-    <ion-navbar>
-      <ion-title>Ubicanos</ion-title>
-    </ion-navbar>
-  </ion-header>
-<ion-content>
+  <ion-navbar>
+    <ion-title>Ubicanos</ion-title>
+  </ion-navbar>
+</ion-header>
 
+<ion-content>
   <map-container
     #map_container
     [options]="mapOption"
     (ready)="mapReady()">
   </map-container>
-
 </ion-content>
